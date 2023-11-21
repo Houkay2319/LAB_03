@@ -25,7 +25,8 @@ jobs:
         with:
           name: "Test and reports"
           path: |
-            ${{ env.PYTEST_REPORT_PATH }}            
+            ${{ env.PYTEST_REPORT_PATH }} 
+            
   publish-package-as-artifact:
     needs: [test-and-package]
     runs-on: ubuntu-latest
