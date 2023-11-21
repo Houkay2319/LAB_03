@@ -1,5 +1,6 @@
 import main
 import math
+import pytest_html
 
 N_correct = 9
 N_incorrect = '9'
@@ -20,7 +21,7 @@ def test_Fibonacchi_on_incorrect_n():
 
 
 def test_Puzirec_on_correct_a():
-    assert main.Puzirec(a_correct) == [0, 1, 3,math.pi, 5, 8, 9, 12]
+    assert main.Puzirec(a_correct) == [0, 1, 3, math.pi, 5, 8, 9, 12]
 
 
 def test_Puzirec_on_correct_a_and_incorrect_result():
