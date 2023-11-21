@@ -25,4 +25,4 @@ jobs:
         with:
           name: "Test and reports"
           path: |
-            ${{ env.PYTEST_REPORT_PATH }}
+            ${{ env.PYTEST_REPORT_PATH }}            
