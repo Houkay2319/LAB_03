@@ -6,7 +6,7 @@ jobs:
   test-and-package:
     runs-on: ubuntu-latest
     env:
-      PYTEST_REPORT_PATH: report.html
+      PYTEST_REPORT_PATH: /tmp/pytest_report.html
     steps:
       - name: "Checkout repository"
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
     needs: [test-and-package]
     runs-on: ubuntu-latest
     env:
-      PYTEST_REPORT_PATH: report.html
+      PYTEST_REPORT_PATH: /tmp/pytest_report.html
     steps:
       - name: "Checkout repository"
         uses: actions/checkout@v3
