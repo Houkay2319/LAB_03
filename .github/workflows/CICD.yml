@@ -22,6 +22,8 @@ jobs:
   publish-package-as-artifact:
     needs: [test-and-package]
     runs-on: ubuntu-latest
+    env:
+      PYTEST_REPORT_PATH: report.html
     steps:
       - name: "Checkout repository"
         uses: actions/checkout@v3
