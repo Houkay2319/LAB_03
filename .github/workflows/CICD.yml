@@ -19,19 +19,23 @@ jobs:
         run: pip install -r requirements.txt
       - name: "Run tests and code coverage analysis"
         run: pytest test.py --html=${{ env.PYTEST_REPORT_PATH }} --self-contained-html
-  publish-package-as-artifact:
-    needs: [test-and-package]
-    runs-on: ubuntu-latest
-    env:
-      PYTEST_REPORT_PATH: /tmp/pytest_report.html
-    steps:
-      - name: "Checkout repository"
-        uses: actions/checkout@v3
       - name: "Archive pytest reports"
         uses: actions/upload-artifact@v3
         if: ${{!cancelled()}}
         with:
           name: "Test and reports"
           path: |
-            ${{ env.PYTEST_REPORT_PATH }} 
+            ${{ env.PYTEST_REPORT_PATH }}
+  publish-package-as-artifact:
+    needs: [test-and-package]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+      - name: "Publish package as artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Built package"
+          path: "src"
+      
 
